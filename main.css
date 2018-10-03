@@ -1,0 +1,157 @@
+html, body{
+    padding: 0;
+    margin: 0; 
+}
+
+body{
+    width: 100%;
+    background-color: #f7f7f7d0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{ 
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(63, 99, 160)
+}
+ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+header{
+    max-height: 100px;
+    width: 100%;
+    background-color: #ffffff
+}
+
+header ul{
+    width: 100%; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding:10px 5px;
+}
+
+header li{
+    height: 80%;
+}
+header img{
+    max-width: 70%;
+
+}
+
+#logo-writing{
+    max-width: 70%;
+    padding-left: 10px;
+    border-left: 1px solid lightgray;
+}
+
+.user-info{
+    border-top: 0.5px solid lightgray;
+    border-bottom: 0.5px solid lightgray;
+    min-height: 300px;
+}
+
+.basic{
+    display: flex;
+    height: 60%;
+    max-height: 200px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+}
+.user-container{
+    width: 70%;
+    height: 100%;
+}
+
+.basic img{
+    max-width: 30%;
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.user-container button{
+    width: 85%;
+    padding: 5px;
+    background-color: #f7f7f7d0;
+    border-radius: 5%;
+}
+
+.name{
+    display:flex;
+    align-items: center;
+}
+.name h2{
+    font-weight: 100;
+    font-size: 22px;
+}
+
+.name img{
+    height: 40px;
+    margin-left: 10px;
+}
+
+.bio{
+    padding: 20px;
+    border-bottom: 0.5px solid lightgray; 
+    /* outline: 1px red solid; */
+}
+
+.bio > *{
+    margin: 0;
+    padding: 2px 0;
+}
+
+.metrics{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box{
+    text-align: center;
+    font-size: 16px;
+}
+
+.box span{
+    color: gray;
+}
+.select-bar{
+    max-height: 80px;
+    border-bottom: 0.5px solid lightgray;
+    display:flex;
+    justify-content: space-between; 
+    padding: 3px 0;
+}
+
+.select-bar img{
+    height: 35px;
+}
+
+.select-bar > img{ 
+    padding-left: 30px;
+}
+
+.select-right{
+    display: inherit;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.rows{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
+    margin: 2px 0;
+}
+
+.rows img{
+    height: 100%;
+    width: 32%;
+    max-height: 250px;
+}
