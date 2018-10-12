@@ -1,30 +1,24 @@
 const grid = document.querySelector('[data-grid]');
 const body = document.querySelector('body');
 const picturesArray = [
-    {url: 'images/atom.jpeg',
+    {url: 'images/cosmos01.jpg',
     caption: 'Here is a picture'},
-    {url: 'images/boss.jpeg',
+    {url: 'images/cosmos02.jpg',
     caption:'Here is another one'},
-    {url: 'images/computer.png',
+    {url: 'images/cosmos03.jpg',
     caption:'Here is another'},
-    {url: 'images/burial.jpeg',
+    {url: 'images/cosmos04.jpg',
     caption:'Here is another'},
-    {url: 'images/computer.png',
+    {url: 'images/cosmos05.jpg',
     caption:'Here is another'},
-    {url: 'images/img.png',
-    caption:'Here is another'},
-    {url: 'images/burial.jpeg',
-    caption:'Here is another'},
-    {url: 'images/boss.jpeg',
+    {url: 'images/cosmos07.jpg',
     caption:'Here is another'},
     {url: 'images/atom.jpeg',
     caption:'Here is another'},
-    {url: 'images/burial.jpeg',
+    {url: 'images/cosmos08.jpg',
     caption:'Here is another'},
-    {url: 'images/boss.jpeg',
+    {url: 'images/cosmos09.jpg',
     caption:'Here is another'},
-    {url: 'images/atom.jpeg',
-    caption:'Here is another'}
 ]
 
 
@@ -41,7 +35,7 @@ function escapeButton(){
     button.addEventListener('click', function(){
         let parent = button.parentNode;
         parent.parentNode.removeChild(parent);
-    })
+    });
     return button;
 }
 
@@ -67,10 +61,6 @@ function drawImages(){
     let image = document.createElement('img');
     image.setAttribute('src', post['url'] );
     image.classList.add ("gridImages");
-    // image.addEventListener('click', function(){
-    //     creatBigImage(image);
-        console.log('clicked');
-
     return image;
 }
 
@@ -84,8 +74,6 @@ function imageContainer(){
     return container;
 });
 }
-
-
 
 // drawRow();
 picturesArray.forEach(function(){
