@@ -1,4 +1,5 @@
-const grid = document.querySelector('[data-grid]')
+const grid = document.querySelector('[data-grid]');
+const body = document.querySelector('body');
 const picturesArray = [
     {url: 'images/atom.jpeg',
     caption: 'Here is a picture'},
@@ -26,10 +27,6 @@ const picturesArray = [
     caption:'Here is another'}
 ]
 
-const elementsList = [];
-const big = document.querySelector('[data-large]');
-
-
 
 let index = 0;
 // function drawRow(){
@@ -38,33 +35,63 @@ let index = 0;
 //     grid.appendChild(row);
 // }
 
+function escapeButton(){
+    let button = document.createElement('button');
+    button.textContent = 'X'
+    button.addEventListener('click', function(){
+        let parent = button.parentNode;
+        parent.parentNode.removeChild(parent);
+    })
+    return button;
+}
 
+function createBigImage(item){
+    let big = document.createElement('div');
+    let bigImage = document.createElement('img');
+    bigImage.setAttribute('src', item.firstChild.src);
+    big.classList.add('blown-up');
+    big.appendChild(escapeButton());
+    big.appendChild(bigImage);
+    body.appendChild(big);
+    return big;
+}
 
+function caption(){
+    let caption = document.createElement('p');
+    caption.textContent = picturesArray[index]['caption'];
+    return caption;
+}
 
 function drawImages(){
     let post = picturesArray[index];
-    let container = document.createElement('div');
     let image = document.createElement('img');
-    let caption = document.createElement('p');
     image.setAttribute('src', post['url'] );
-    image.addEventListener('click', function(){
-        console.log('clicked');
-    });
     image.classList.add ("gridImages");
+    // image.addEventListener('click', function(){
+    //     creatBigImage(image);
+        console.log('clicked');
+
+    return image;
+}
+
+function imageContainer(){
+    let container = document.createElement('div');
     container.classList.add('image-container');
-    caption.textContent = post['caption'];
-    container.appendChild(image);
-    // container.appendChild(caption);
+    container.appendChild(drawImages(),caption());
     grid.appendChild(container);
-};
+    container.addEventListener('click', function(){
+        createBigImage(container);
+    return container;
+});
+}
 
 
 
 // drawRow();
-for(item of picturesArray){
-    drawImages();
+picturesArray.forEach(function(){
+    imageContainer();
     index++;
-}
+});
 
 
 
