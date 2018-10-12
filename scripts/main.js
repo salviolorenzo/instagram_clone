@@ -23,12 +23,6 @@ const picturesArray = [
 
 
 let index = 0;
-// function drawRow(){
-//     let row = document.createElement('div');
-//     row.classList.add('rows');
-//     grid.appendChild(row);
-// }
-
 function escapeButton(){
     let button = document.createElement('button');
     button.textContent = 'X'
@@ -42,7 +36,7 @@ function escapeButton(){
 function createBigImage(item){
     let big = document.createElement('div');
     let bigImage = document.createElement('img');
-    bigImage.setAttribute('src', item.firstChild.src);
+    bigImage.setAttribute('src', item);
     big.classList.add('blown-up');
     big.appendChild(escapeButton());
     big.appendChild(bigImage);
@@ -69,13 +63,11 @@ function imageContainer(){
     container.classList.add('image-container');
     container.appendChild(drawImages(),caption());
     grid.appendChild(container);
-    container.addEventListener('click', function(){
-        createBigImage(container);
+    container.addEventListener('click', function(event){
+        createBigImage(event.target.src);
     return container;
 });
 }
-
-// drawRow();
 picturesArray.forEach(function(){
     imageContainer();
     index++;
