@@ -1,25 +1,25 @@
 const grid = document.querySelector('[data-grid]');
 const body = document.querySelector('body');
-const picturesArray = [
-    {url: 'images/cosmos01.jpg',
-    caption: 'Here is a picture'},
-    {url: 'images/cosmos02.jpg',
-    caption:'Here is another one'},
-    {url: 'images/cosmos03.jpg',
-    caption:'Here is another'},
-    {url: 'images/cosmos04.jpg',
-    caption:'Here is another'},
-    {url: 'images/cosmos05.jpg',
-    caption:'Here is another'},
-    {url: 'images/cosmos07.jpg',
-    caption:'Here is another'},
-    {url: 'images/atom.jpeg',
-    caption:'Here is another'},
-    {url: 'images/cosmos08.jpg',
-    caption:'Here is another'},
-    {url: 'images/cosmos09.jpg',
-    caption:'Here is another'},
-]
+// const picturesArray = [
+//     {url: 'images/cosmos01.jpg',
+//     caption: 'Here is a picture'},
+//     {url: 'images/cosmos02.jpg',
+//     caption:'Here is another one'},
+//     {url: 'images/cosmos03.jpg',
+//     caption:'Here is another'},
+//     {url: 'images/cosmos04.jpg',
+//     caption:'Here is another'},
+//     {url: 'images/cosmos05.jpg',
+//     caption:'Here is another'},
+//     {url: 'images/cosmos07.jpg',
+//     caption:'Here is another'},
+//     {url: 'images/atom.jpeg',
+//     caption:'Here is another'},
+//     {url: 'images/cosmos08.jpg',
+//     caption:'Here is another'},
+//     {url: 'images/cosmos09.jpg',
+//     caption:'Here is another'},
+// ]
 
 
 let index = 0;
@@ -44,34 +44,41 @@ function createBigImage(item){
     return big;
 }
 
-function caption(){
+function caption(array){
     let caption = document.createElement('p');
-    caption.textContent = picturesArray[index]['caption'];
+    caption.textContent = array[index]['caption'];
     return caption;
 }
 
-function drawImages(){
-    let post = picturesArray[index];
+function drawImages(array){
+    let post = array[index];
     let image = document.createElement('img');
     image.setAttribute('src', post['url'] );
     image.classList.add ("gridImages");
     return image;
 }
 
-function imageContainer(){
+function imageContainer(array){
     let container = document.createElement('div');
     container.classList.add('image-container');
-    container.appendChild(drawImages(),caption());
+    container.appendChild(drawImages(array),caption(array));
     grid.appendChild(container);
     container.addEventListener('click', function(event){
         createBigImage(event.target.src);
     return container;
 });
 }
-picturesArray.forEach(function(){
-    imageContainer();
-    index++;
-});
+function drawImagesFromRemote(picturesArray){
+    picturesArray.forEach(function(){
+        imageContainer(picturesArray);
+        index++;
+    });
+}
+
+
+let data = fetch('/scripts/imageData.json')
+                    .then(r=>r.json())
+                    .then(drawImagesFromRemote);
 
 
 
