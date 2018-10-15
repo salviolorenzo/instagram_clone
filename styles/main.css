@@ -197,13 +197,14 @@ header img{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
     animation: zoom-in .5s ease-in-out;
     /* outline: 1px red solid;  */
 }
 
 .blown-up img{
-    width: 100%;
+    width: 90%;
     height:80%;
 }
 
@@ -219,5 +220,5 @@ header img{
     background-color: white;
     opacity: 0.6;
     position: relative;
-    top: 65px;
+    left: 30px;
 }

@@ -40,7 +40,7 @@ function createBigImage(item){
     big.classList.add('blown-up');
     big.appendChild(escapeButton());
     big.appendChild(bigImage);
-    body.appendChild(big);
+    body.appendChild(big); 
     return big;
 }
 
@@ -73,12 +73,12 @@ function drawImagesFromRemote(picturesArray){
         imageContainer(picturesArray);
         index++;
     });
+    
 }
 
 
 let data = fetch('/scripts/imageData.json')
                     .then(r=>r.json())
                     .then(drawImagesFromRemote);
-
 
 
