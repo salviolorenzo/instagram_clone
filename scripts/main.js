@@ -25,6 +25,10 @@ const picturesArray = [
 
 
 let index = 0;
+
+
+
+
 function escapeButton(){
     let button = document.createElement('button');
     button.textContent = 'X'
@@ -94,11 +98,13 @@ drawImagesFromRemote();
 //                     .then(r=>r.json())
 //                     .then(drawImagesFromRemote);
 
-if (bigImage.classList.includes('blown-up-hidden')){
-    bigImage.addEventListener('keydown', function(event){
-        if (event.keyCode === 37){
-            console.log('pressed');
-            bigImageThing.setAttribute('src', (post-1)['url'] );
-        }
-    });
-}
+
+// window.addEventListener('keydown', function(event){
+//     if (event.keyCode === 37){
+//         console.log('pressedLeft');
+//     }
+//     else if (event.keyCode === 39){
+//         console.log('pressedRight');
+//         getNextImage(bigImageThing);
+//     }
+// });
